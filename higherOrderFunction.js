@@ -106,15 +106,50 @@
     })
     console.log(newBooks)
     
-    //reduce function
-    // evenNumbers.reduce(function(){
-    
-    // })
+    const files = ["app.js", "a.c", ,"index.html", "style.css", "script.js"]
+
+    const result = files.filter(function(file){
+        return file.endsWith(".js")
+    })
+    console.log(result)
+
+    const students = [
+        {
+            name : "Sayon",
+            marks : 86,
+            status : "pass",
+            grade : "A"
+        },
+        {
+            name : "Suman",
+            marks : 93,
+            status : "pass",
+            grade : "A+"
+        },
+        {
+            name : "Dipesh",
+            marks : 36,
+            status : "fail",
+            grade : "F"
+        },
+        {
+            name : "Saron",
+            marks : 82,
+            status : "pass",
+            grade : "A"
+        }
+    ]
+
+    const gradeA = students.filter(function(std){
+        return std.marks >= 80 && std.marks < 90
+    })
+
+    console.log(gradeA)
 
     // difference between == and ===
     let age = "22"
 
-    if(age==22){        // == operator compares values after performing type conversion
+    if(age==22){    //condition is true in this case    // == operator compares values after performing type conversion
         console.log("Age is 22")
     }
     else{
@@ -123,9 +158,45 @@
 
     // but
 
-    if(age===22){       // === operator compares values without type conversion
+    if(age===22){    //condition is false in this case  // === operator compares values without type conversion
         console.log("Age is 22")
     }
     else{
         console.log("Age is not 22")
     }
+
+
+
+    //reduce function
+    const nums = [1,2,3,4,5]
+
+    const sum = numbers.reduce(function(accumulator,number){
+        return accumulator + number
+     },0)  //0 - accumulator initial value
+     console.log("Sum is : " + sum) //output chai 15 (1+2+3+4+5)
+
+     const myCart = [
+        {
+            product : "Apple",
+            price : 200,
+            quantity : 20
+        },
+        {
+            product : "Mango",
+            price : 100,
+            quantity : 10
+        },
+        {
+            product : "Dragon Fruit",
+            price : 400,
+            quantity : 12
+        }
+     ]
+
+     const output = myCart.reduce(function(acc,item){
+        acc.totalPrice += item.price * item.quantity //acc.totalPrice = acc.totalPrice + (item.price * item.quantity)
+        acc.totalQuantity += item.quantity
+        return acc
+     },{totalPrice :0, totalQuantity :0})
+
+     console.log(output)
