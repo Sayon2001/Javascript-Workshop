@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Todo App</h1>
+    <div>
+        <input id="todo-input" type="text" placeholder="Enter your Todo task here.">
+        <button onclick="addTask()">Submit</button>
+    </div>
+    <div>
+        <label for="search">Search:</label>
+        <input type="text" placeholder="Search Todo tasks" id="search" oninput="searchTask()">
+    </div>
+    <ul id="todo-list">
+    </ul>
+    <div>
+        <p>Total Tasks: <span id="total-task">0</span></p>
+        <p>Completed Tasks: <span id="completed-task">0</span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
