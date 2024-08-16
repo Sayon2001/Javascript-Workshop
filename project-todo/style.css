@@ -27,6 +27,13 @@ input[type="text"]{
     border: 1px solid black;
 }
 
+input[type="date"]{
+    padding:7px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
 button{
     padding: 8px 16px;
     font-size: 14px;

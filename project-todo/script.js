@@ -1,24 +1,30 @@
 
-let todoTasks = [];
+const todoTasks = []
 function addTask(){
-    const todoInput = document.getElementById('todo-input')
-    const todoValue = (todoInput.value)
-    if (todoValue !== ""){
+    const todoNameInput = document.getElementById('todo-input')
+    const todoDateInput = document.getElementById('date-input')
+    const todoName = (todoNameInput.value)
+    const todoDate = (todoDateInput.value)
+    if (todoName !== "" && todoDate !== ""){
         todoTasks.push({
-            text : todoValue,
+            text : todoName,
+            date : todoDate,
             completed : false
         })
-        todoInput.value = ""
+        todoNameInput.value = ""
+        todoDateInput.value = ""
         renderToDoTasks()
+    } else {
+        alert("Please enter both task name and date.")
     }
 }
 
 function renderToDoTasks(){
     const todoList = document.getElementById('todo-list')
-    todoList.innerHTML = "" // remove all previous child nodes
+    todoList.innerHTML = "" // clear previous task
     todoTasks.forEach(function(task){
         const listItem = document.createElement('li')
-        listItem.textContent = task.text
+        listItem.textContent = `${task.text}  -  ${task.date}`
         listItem.className = task.completed ? 'completed' : ''
         listItem.onclick = () => {
             toggleCompleted(task)
@@ -48,7 +54,7 @@ function searchTask(){
     const searchInput = document.getElementById('search')
     const searchValue = searchInput.value
     const searchedTask = todoTasks.filter((todo)=>{
-        return todo.text.includes(searchValue)
+        return todo.text.includes(searchValue) || todo.date.includes(searchValue)
     })
     renderTasksWithSearchedTask(searchedTask)
 }
@@ -58,7 +64,7 @@ function renderTasksWithSearchedTask(searchedTask) {
     todoList.innerHTML = "" // remove all previous child nodes
     searchedTask.forEach(function(task){
         const listItem = document.createElement('li')
-        listItem.textContent = task.text
+        listItem.textContent = `${task.text} - ${task.date}`
         listItem.className = task.completed ? 'completed' : ''
         listItem.onclick = () => {
             toggleCompleted(task)
