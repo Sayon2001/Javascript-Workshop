@@ -63,6 +63,8 @@ li{
     background-color: #fff;
     padding: 10px;
     margin: 5px 0;
+    font-size: 18px;
+    font-weight: 400;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -95,8 +97,3 @@ select{
     border: 1px solid black;
     margin-right: 10px;
 }
-
-.ViewDetails{
-    background-color: greenyellow;
-}
-

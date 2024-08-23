@@ -32,7 +32,7 @@ function renderToDoTasks(){
     todoList.innerHTML = "" // clear previous task
     todoTasks.forEach(function(task){
         const listItem = document.createElement('li')
-        listItem.textContent = `Task Name: ${task.name} -- Priority: ${task.priority} -- Deadline: ${task.date}`
+        listItem.textContent = `-- Task Name: ${task.name} -- Priority: ${task.priority} -- Deadline: ${task.date} --`
         listItem.className = task.completed ? 'completed' : ''
         listItem.onclick = () => {
             toggleCompleted(task)
@@ -102,7 +102,7 @@ function renderTasksWithSearchedTask(searchedTask) {
     todoList.innerHTML = "" // remove all previous child nodes
     searchedTask.forEach(function(task){
         const listItem = document.createElement('li')
-        listItem.textContent = `Task Name: ${task.name} -- Priority: ${task.priority} -- Deadline: ${task.date}`
+        listItem.textContent = `-- Task Name: ${task.name} -- Priority: ${task.priority} -- Deadline: ${task.date} --`
         listItem.className = task.completed ? 'completed' : ''
         listItem.onclick = () => {
             toggleCompleted(task)
