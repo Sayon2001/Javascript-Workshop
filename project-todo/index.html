@@ -11,11 +11,22 @@
     <div>
         <input id="todo-input" type="text" placeholder="Enter your Todo task here.">
         <input type="date" id="date-input">
+    </div>
+    <div class="box-desc">
+        <textarea id="desc-input" placeholder="Enter a short description about the todo task."></textarea>
+    </div>
+    <div>
+        <label for="priority-input">Priority:</label>
+        <select id="priority-input" >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
         <button onclick="addTask()">Submit</button>
     </div>
     <div>
         <label for="search">Search:</label>
-        <input type="text" placeholder="Search Todo tasks" id="search" oninput="searchTask()">
+        <input type="text" placeholder="Search Todo tasks" id="search-input" oninput="searchTask()">
     </div>
     <ul id="todo-list">
     </ul>
