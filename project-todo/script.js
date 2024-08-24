@@ -26,6 +26,7 @@ function addTask(){
         todoPriorityInput.value = "Medium"
         todoCategoryInput.value = "Personal"
         renderToDoTasks()
+        checkForUpcomingDeadlines()
     } else {
         alert("All the fields are required")
     }
@@ -267,6 +268,19 @@ function editTask(task){
 
     renderToDoTasks();
 } 
+
+function checkForUpcomingDeadlines(){
+    const currentDate = new Date();
+
+    todoTasks.forEach(function(task){
+        const deadlineDate = new Date(task.date);
+        const deadlineDays = Math.ceil((deadlineDate - currentDate) / (1000 * 60 * 60 * 24));
+
+        if (deadlineDays <=2 && !task.completed){
+            alert(`Task "${task.name}" is due in ${deadlineDays} day(s)!`)
+        }
+    })
+}
 
 const textarea = document.getElementById('desc-input');
 
