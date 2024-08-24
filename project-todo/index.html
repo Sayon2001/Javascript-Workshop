@@ -34,6 +34,23 @@
         <label for="search-input">Search:</label>
         <input type="text" placeholder="Search Todo tasks" id="search-input" oninput="searchTask()">
     </div>
+    <div>
+        <label for="category-filter">Filter by Category:</label>
+        <select id="category-filter" onchange="filterTasks()">
+            <option value="All">All</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+        </select>
+        <label for="priority-filter">Filter by Priority:</label>
+        <select id="priority-filter" onchange="filterTasks()">
+        <option value="All">All</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        </select>
+
+    </div>
     <ul id="todo-list">
     </ul>
     <div>

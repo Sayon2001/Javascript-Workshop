@@ -30,6 +30,7 @@ div{
 
 #search-input{
     margin-top: 20px;
+    width: 250px;
     padding:8px;
     font-size: 14px;
     border-radius: 5px;
