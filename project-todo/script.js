@@ -5,22 +5,26 @@ function addTask(){
     const todoDateInput = document.getElementById('date-input')
     const todoDescInput = document.getElementById('desc-input')
     const todoPriorityInput = document.getElementById('priority-input')
+    const todoCategoryInput = document.getElementById('category-input')
     const todoName = (todoNameInput.value)
     const todoDate = (todoDateInput.value)
     const todoDesc = (todoDescInput.value)
     const todoPriority = (todoPriorityInput.value)
-    if (todoName !== "" && todoDate !== "" && todoDesc !== "" && todoPriority !== ""){
+    const todoCategory = (todoCategoryInput.value)
+    if (todoName !== "" && todoDate !== "" && todoDesc !== "" && todoPriority !== "" && todoCategory !== "" && todoName !== ""){
         todoTasks.push({
             name : todoName,
             date : todoDate,
             desc: todoDesc,
             priority : todoPriority,
+            category : todoCategory,
             completed : false
         })
         todoNameInput.value = ""
         todoDateInput.value = ""
         todoDescInput.value = ""
-        // todoPriorityInput.value = ""
+        todoPriorityInput.value = ""
+        todoCategoryInput.value = ""
         renderToDoTasks()
     } else {
         alert("All the fields are required")
@@ -32,7 +36,7 @@ function renderToDoTasks(){
     todoList.innerHTML = "" // clear previous task
     todoTasks.forEach(function(task){
         const listItem = document.createElement('li')
-        listItem.textContent = `-- Task Name: ${task.name} -- Priority: ${task.priority} -- Deadline: ${task.date} --`
+        listItem.textContent = `|| Task Name: ${task.name} || Priority: ${task.priority} || Category: ${task.category} || Deadline: ${task.date} ||`
         listItem.className = task.completed ? 'completed' : ''
         listItem.onclick = () => {
             toggleCompleted(task)
@@ -61,7 +65,8 @@ function renderToDoTasks(){
                  Task Name : ${task.name}
                  Deadline : ${task.date}
                  Description : ${task.desc}
-                 Priority : ${task.priority}`
+                 Priority : ${task.priority}
+                 Category : ${task.category}`
             )
         }
 
@@ -92,7 +97,7 @@ function searchTask(){
     const searchInput = document.getElementById('search-input')
     const searchValue = searchInput.value
     const searchedTask = todoTasks.filter((todo)=>{
-        return todo.name.includes(searchValue) || todo.date.includes(searchValue) || todo.priority.includes(searchValue)
+        return todo.name.includes(searchValue) || todo.date.includes(searchValue) || todo.priority.includes(searchValue) || todo.category.includes(searchValue)
     })
     renderTasksWithSearchedTask(searchedTask)
 }
@@ -102,7 +107,7 @@ function renderTasksWithSearchedTask(searchedTask) {
     todoList.innerHTML = "" // remove all previous child nodes
     searchedTask.forEach(function(task){
         const listItem = document.createElement('li')
-        listItem.textContent = `-- Task Name: ${task.name} -- Priority: ${task.priority} -- Deadline: ${task.date} --`
+        listItem.textContent = `-- Task Name: ${task.name} -- Priority: ${task.priority} -- Category: ${task.category} -- Deadline: ${task.date} --`
         listItem.className = task.completed ? 'completed' : ''
         listItem.onclick = () => {
             toggleCompleted(task)
@@ -130,7 +135,8 @@ function renderTasksWithSearchedTask(searchedTask) {
                  Task Name : ${task.name}
                  Deadline : ${task.date}
                  Description : ${task.desc}
-                 Priority : ${task.priority}`
+                 Priority : ${task.priority}
+                 Category : ${task.category}`
             )
         }
         console.log(listItem)
