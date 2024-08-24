@@ -58,7 +58,7 @@ function renderToDoTasks(){
         viewDetails.textContent = 'View Details';
         viewDetails.style.backgroundColor = 'green';
         viewDetails.style.color = 'white';
-        viewDetails.style.margin = '0 10px 0 60px'
+        viewDetails.style.margin = '0 10px 0 0'
         viewDetails.onclick = (event) => {
             event.stopPropagation()
             alert(`
@@ -70,6 +70,17 @@ function renderToDoTasks(){
             )
         }
 
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.style.backgroundColor = '#2196F3';
+        editButton.style.color = 'white';
+        editButton.style.margin = '0 10px 0 60px'
+        editButton.onclick = (event) => {
+            event.stopPropagation()
+            editTask(task);
+        }
+
+        listItem.appendChild(editButton);
         listItem.appendChild(viewDetails);
         listItem.appendChild(deleteButton);
         todoList.appendChild(listItem)
@@ -128,7 +139,7 @@ function renderTasksWithSearchedTask(searchedTask) {
         viewDetails.textContent = 'View Details';
         viewDetails.style.backgroundColor = 'green';
         viewDetails.style.color = 'white';
-        viewDetails.style.margin = '0 10px 0 60px'
+        viewDetails.style.margin = '0 10px 0 0'
         viewDetails.onclick = (event) => {
             event.stopPropagation()
             alert(`
@@ -139,7 +150,19 @@ function renderTasksWithSearchedTask(searchedTask) {
                  Category : ${task.category}`
             )
         }
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.style.backgroundColor = '#2196F3';
+        editButton.style.color = 'white';
+        editButton.style.margin = '0 10px 0 60px'
+        editButton.onclick = (event) => {
+            event.stopPropagation()
+            editTask(task);
+        }
+
         console.log(listItem)
+        listItem.appendChild(editButton);
         listItem.appendChild(viewDetails);
         listItem.appendChild(deleteButton);
         todoList.appendChild(listItem)
@@ -193,7 +216,7 @@ function renderTasksWithFilteredTasks(filteredTasks){
         viewDetails.textContent = 'View Details';
         viewDetails.style.backgroundColor = 'green';
         viewDetails.style.color = 'white';
-        viewDetails.style.margin = '0 10px 0 60px'
+        viewDetails.style.margin = '0 10px 0 0'
         viewDetails.onclick = (event) => {
             event.stopPropagation()
             alert(`
@@ -204,13 +227,46 @@ function renderTasksWithFilteredTasks(filteredTasks){
                  Category : ${task.category}`
             )
         }
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.style.backgroundColor = '#2196F3';
+        editButton.style.color = 'white';
+        editButton.style.margin = '0 10px 0 60px'
+        editButton.onclick = (event) => {
+            event.stopPropagation()
+            editTask(task);
+        }
+
         console.log(listItem)
+        listItem.appendChild(editButton);
         listItem.appendChild(viewDetails);
         listItem.appendChild(deleteButton);
         todoList.appendChild(listItem)
         updateCount()
     })
 }
+
+function editTask(task){
+    const todoNameInput = document.getElementById('todo-input');
+    const todoDateInput = document.getElementById('date-input');
+    const todoDescInput = document.getElementById('desc-input');
+    const todoPriorityInput = document.getElementById('priority-input');
+    const todoCategoryInput = document.getElementById('category-input');
+
+    todoNameInput.value = task.name;
+    todoDateInput.value = task.date;
+    todoDescInput.value = task.desc;
+    todoPriorityInput.value = task.priority;
+    todoCategoryInput.value = task.category;
+
+    const index = todoTasks.indexOf(task);
+    if (index !== -1){
+        todoTasks.splice(index, 1);
+    }
+
+    renderToDoTasks();
+} 
 
 const textarea = document.getElementById('desc-input');
 

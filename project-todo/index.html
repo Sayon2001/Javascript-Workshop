@@ -8,55 +8,66 @@
 </head>
 <body>
     <h1>Todo App</h1>
+    
     <div>
-        <input id="todo-input" type="text" placeholder="Enter your Todo task here.">
-        <input type="date" id="date-input">
+        <input id="todo-input" type="text" placeholder="Enter your Todo task here." required>
+        <input type="date" id="date-input" required>
     </div>
-    <div class="box-desc">
-        <textarea id="desc-input" placeholder="Enter a short description about the todo task."></textarea>
-    </div>
+    
     <div>
+        <textarea id="desc-input" placeholder="Enter a short description about the todo task." required></textarea>
+    </div>
+    
+    <div>
+        <label for="priority-input">Priority:</label>
+        <select id="priority-input">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        
         <label for="category-input">Category:</label>
         <select id="category-input">
             <option value="Personal">Personal</option>
             <option value="Work">Work</option>
             <option value="School">School</option>
         </select>
-        <label for="priority-input">Priority:</label>
-        <select id="priority-input" >
+    </div>
+    
+    <div>
+        <button onclick="addTask()">Submit</button>
+    </div>
+    
+    <div>
+        <label for="search">Search:</label>
+        <input type="text" placeholder="Search Todo tasks" id="search-input" oninput="searchTask()">
+    </div>
+    
+    <div>
+        <label for="filter-priority">Filter by Priority:</label>
+        <select id="priority-filter" onchange="filterTasks()">
+            <option value="All">All</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
         </select>
-    </div>
-    <button onclick="addTask()">Submit</button>
-    <div>
-        <label for="search-input">Search:</label>
-        <input type="text" placeholder="Search Todo tasks" id="search-input" oninput="searchTask()">
-    </div>
-    <div>
-        <label for="category-filter">Filter by Category:</label>
+    
+        <label for="filter-category">Filter by Category:</label>
         <select id="category-filter" onchange="filterTasks()">
             <option value="All">All</option>
             <option value="Personal">Personal</option>
             <option value="Work">Work</option>
             <option value="School">School</option>
         </select>
-        <label for="priority-filter">Filter by Priority:</label>
-        <select id="priority-filter" onchange="filterTasks()">
-        <option value="All">All</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-        </select>
-
     </div>
-    <ul id="todo-list">
-    </ul>
+    
+    <ul id="todo-list"></ul>
+    
     <div>
         <p>Total Tasks: <span id="total-task">0</span></p>
         <p>Completed Tasks: <span id="completed-task">0</span></p>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
