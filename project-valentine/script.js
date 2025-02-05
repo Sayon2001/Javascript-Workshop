@@ -34,13 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const maxWidth = window.innerWidth - noButton.offsetWidth;
-            const maxHeight = window.innerHeight - noButton.offsetHeight;
+            const maxWidth = window.innerWidth * 0.8;
+            const maxHeight = window.innerHeight * 0.4;
 
-
-            const randomX = Math.floor(Math.random() * maxWidth);
-            const randomY = Math.floor(Math.random() * maxHeight);
-
+            const randomX = Math.max(0, Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth)));
+            const randomY = Math.max(0, Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight)));
 
             noButton.style.position = "absolute";
             noButton.style.left = randomX + "px";
@@ -49,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let currentWidth = yesButton.offsetWidth;
             let currentHeight = yesButton.offsetHeight;
 
-            let newWidth = currentWidth + 150;
-            let newHeight = currentHeight + 75;
+            let newWidth = Math.min(currentWidth + 150, maxWidth);
+            let newHeight = Math.min(currentHeight + 75, maxHeight);
 
             if (newWidth >= maxWidth) {
                 newWidth = maxWidth;

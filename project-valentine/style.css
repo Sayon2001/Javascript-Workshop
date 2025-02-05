@@ -6,6 +6,8 @@
 
 body {
     font-family: 'Dancing Script', cursive;
+    width: 100vw;
+    height: 100vh;
 }
 
 #main {
@@ -129,7 +131,7 @@ button {
 
     #no,
     #yes {
-        width: 80%;
+        width: 70%;
         font-size: 1rem;
     }
 
@@ -153,7 +155,7 @@ button {
 
     #no,
     #yes {
-        width: 80%;
+        width: 70%;
         font-size: 1rem;
         padding: 0.8rem;
     }
