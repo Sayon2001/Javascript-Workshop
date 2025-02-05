@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Dancing Script', cursive;
+}
+
 #main {
     display: flex;
     justify-content: center;
@@ -12,6 +16,7 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
@@ -19,12 +24,14 @@
 h1 {
     color: #ffafcc;
     font-size: 4rem;
+    text-align: center;
 }
 
 button {
     margin-top: 1.5rem;
     padding: 1.2rem;
-    font-size: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 0.5rem;
     border: none;
@@ -37,6 +44,7 @@ button {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 #yes {
@@ -47,17 +55,15 @@ button {
     text-decoration: none;
 }
 
-#yes:hover {
-    transform: scale(1.1);
-}
-
 #no {
     background-color: rgb(207, 203, 203);
 }
 
+#yes:hover,
 #no:hover {
     transform: scale(1.1);
 }
+
 
 #sayon {
     position: fixed;
@@ -72,10 +78,6 @@ button {
     transition: all 0.3s ease;
 }
 
-#sayon:hover {
-    transform: scale(1.1);
-}
-
 #main-next {
     background-color: lavender;
     display: flex;
@@ -84,18 +86,79 @@ button {
     gap: 2rem;
     width: 100vw;
     height: 100vh;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    text-align: center;
+    flex-direction: column;
+    padding: 1rem;
 }
 
-#text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#home-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    color: #ba8cd4;
+    background-color: lavender;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+#sayon:hover,
+#home-button:hover {
+    transform: scale(1.1);
 }
 
 #text h1 {
     color: red;
+    font-size: 4rem;
+}
+
+@media (max-width:768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #buttons-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #no,
+    #yes {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    #main-next {
+        gap: 1rem;
+    }
+
+    #text h1 {
+        font-size: 2rem;
+    }
+
+    #main-next img {
+        width: 70%;
+    }
+}
+
+@media (max-width:480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #no,
+    #yes {
+        width: 80%;
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    #sayon {
+        font-size: 1.5rem;
+    }
 }
